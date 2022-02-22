@@ -1,0 +1,208 @@
+{
+  "_version": "1.17.0",
+  "sap.app": {
+    "id": "oup.otc.zotcmatinq",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "tags": {
+      "keywords": []
+    },
+    "resources": "resources.json",
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZOTC_C_MAT_INQ_CDS/",
+        "type": "OData",
+        "settings": {
+          "annotations": ["ZOTC_C_MAT_INQ_CDS_VAN", "annotation"],
+          "localUri": "localService/metadata.xml"
+        }
+      },
+      "ZOTC_C_MAT_INQ_CDS_VAN": {
+        "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZOTC_C_MAT_INQ_CDS_VAN',Version='0001')/$value/",
+        "type": "ODataAnnotation",
+        "settings": {
+          "localUri": "localService/ZOTC_C_MAT_INQ_CDS_VAN.xml"
+        }
+      },
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      }
+    },
+    "offline": false,
+    "sourceTemplate": {
+      "id": "ui5template.smartTemplate",
+      "version": "1.40.12"
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    },
+    "supportedThemes": ["sap_hcb", "sap_belize", "sap_fiori_3"]
+  },
+  "sap.ui5": {
+    "resources": {
+      "js": [],
+      "css": []
+    },
+    "dependencies": {
+      "minUI5Version": "1.65.0",
+      "libs": {
+        "sap.ui.core": {
+          "lazy": false
+        },
+        "sap.ui.generic.app": {
+          "lazy": false
+        },
+        "sap.suite.ui.generic.template": {
+          "lazy": false
+        }
+      },
+      "components": {}
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      },
+      "i18n|sap.suite.ui.generic.template.ListReport|ZOTC_C_MAT_INQ": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/ListReport/ZOTC_C_MAT_INQ/i18n.properties"
+      },
+      "i18n|sap.suite.ui.generic.template.ObjectPage|ZOTC_C_MAT_INQ": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/ObjectPage/ZOTC_C_MAT_INQ/i18n.properties"
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "defaultCountMode": "Inline",
+          "refreshAfterChange": true,
+          "metadataUrlParams": {
+            "sap-value-list": "none"
+          }
+        }
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.suite.ui.generic.template.ObjectPage.view.Details": {
+            "controllerName": "oup.otc.zotcmatinq.ext.controller.ObjectPageExt",
+            "sap.ui.generic.app": {
+              "ZOTC_C_MAT_INQ": {
+                "EntitySet": "ZOTC_C_MAT_INQ",
+                "Header": {
+                  "Actions": {
+                    "ISBN": {
+                      "id": "ISBNButton",
+                      "text": "ISBN",
+                      "type": "Accept",
+                      "press": "ISBN",
+                      "requiresSelection": false
+                    },
+                    "Stock": {
+                      "id": "StockButton",
+                      "text": "Stock",
+                      "press": "fnStock",
+                      "requiresSelection": false
+                    },
+                    "Production": {
+                      "id": "ProductionButton",
+                      "text": "Production",
+                      "press": "fnProduction",
+                      "requiresSelection": false
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "sap.suite.ui.generic.template.ListReport.view.ListReport": {
+            "controllerName": "oup.otc.zotcmatinq.ext.controller.ListReportExt"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui.generic.app": {
+    "_version": "1.3.0",
+    "settings": {
+      "forceGlobalRefresh": true,
+      "objectPageHeaderType": "Dynamic",
+      "considerAnalyticalParameters": true,
+      "showDraftToggle": false
+    },
+    "pages": {
+      "ListReport|ZOTC_C_MAT_INQ": {
+        "entitySet": "ZOTC_C_MAT_INQ",
+        "component": {
+          "name": "sap.suite.ui.generic.template.ListReport",
+          "list": true,
+          "settings": {
+            "condensedTableLayout": true,
+            "smartVariantManagement": false,
+            "enableTableFilterInPageVariant": true,
+            "filterSettings": {
+              "dateSettings": {
+                "useDateRange": true
+              }
+            },
+            "tableSettings": {
+              "type": "GridTable"
+            }
+          }
+        },
+        "pages": {
+          "ObjectPage|ZOTC_C_MAT_INQ": {
+            "entitySet": "ZOTC_C_MAT_INQ",
+            "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
+            "component": {
+              "name": "sap.suite.ui.generic.template.ObjectPage"
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.platform.abap": {
+    "uri": ""
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  },
+  "sap.platform.hcp": {
+    "uri": ""
+  }
+}

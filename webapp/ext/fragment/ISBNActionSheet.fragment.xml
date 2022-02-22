@@ -1,0 +1,18 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+    xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	
+    <Menu itemSelected=".onMenuItemSelected">
+        <MenuItem text="Display ISBN" custom:SEMANTIC_OBJECT="Material" custom:SEMANTIC_ACTION="manage" custom:PARM="ISBN"/>
+		<MenuItem text="Mat determination" custom:SEMANTIC_OBJECT="ZSalesMaterialSubs" custom:SEMANTIC_ACTION="display" custom:PARM="MAT_DET"/>
+        <MenuItem text="Billing Docs" custom:SEMANTIC_OBJECT="ZBillingDocument" custom:SEMANTIC_ACTION="listBillingDocs" custom:PARM="BILL_DOCS"/>
+		<MenuItem text="Pricing" custom:SEMANTIC_OBJECT="ZPriceCondition" custom:SEMANTIC_ACTION="displayCondition" custom:PARM="PRC_COND"/>
+        <MenuItem text="Delivery Restriction" custom:SEMANTIC_OBJECT="ZMaterialProfile" custom:SEMANTIC_ACTION="manage" custom:PARM="DR"/>
+		<MenuItem text="Market Restriction" custom:SEMANTIC_OBJECT="ZMaterialProfile" custom:SEMANTIC_ACTION="manage" custom:PARM="MR"/>
+        <MenuItem text="Stock Restriction" custom:SEMANTIC_OBJECT="ZMaterialProfile" custom:SEMANTIC_ACTION="manage" custom:PARM="SR"/>    		
+        <MenuItem text="PIR" custom:SEMANTIC_OBJECT="PurchasingInfoRecord" custom:SEMANTIC_ACTION="maintain" custom:PARM="PIR"/>    		
+        <MenuItem text="Sets" custom:SEMANTIC_OBJECT="ZBillOfMaterial" custom:SEMANTIC_ACTION="display" custom:PARM="SETS"/>    		
+        <MenuItem text="Bundles" custom:SEMANTIC_OBJECT="MaterialBOM" custom:SEMANTIC_ACTION="whereused" custom:PARM="BUNDLES"/>    		
+	</Menu>
+</core:FragmentDefinition>

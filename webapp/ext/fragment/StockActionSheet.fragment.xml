@@ -1,0 +1,14 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+    xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	
+    <Menu itemSelected=".onMenuItemSelected">
+		<MenuItem text="Stock Overview" custom:SEMANTIC_OBJECT="Material" custom:SEMANTIC_ACTION="displayStockOverview" custom:PARM="STOCK_OV"/>
+		<MenuItem text="Stock Movements" custom:SEMANTIC_OBJECT="MaterialMovement" custom:SEMANTIC_ACTION="displayList" custom:PARM="STOCK_MOV"/>
+        <MenuItem text="Open POs" custom:SEMANTIC_OBJECT="PurchaseOrderItem" custom:SEMANTIC_ACTION="monitorPurDocItems" custom:PARM="OPEN_POS"/>
+        <MenuItem text="Backorder" custom:SEMANTIC_OBJECT="ZSalesDocument" custom:SEMANTIC_ACTION="list" custom:PARM="BACKORDER"/>
+        <MenuItem text="Sales Volume Detailed Analysis" custom:SEMANTIC_OBJECT="MATINQ" custom:SEMANTIC_ACTION="displayZsalesVolumeDetailedAnalysis" custom:PARM="SALES_VDA"/>
+        <MenuItem text="Customer Returns" custom:SEMANTIC_OBJECT="MATINQ" custom:SEMANTIC_ACTION="displayZCustomerReturn" custom:PARM="CUST_RET"/>
+	</Menu>
+</core:FragmentDefinition>

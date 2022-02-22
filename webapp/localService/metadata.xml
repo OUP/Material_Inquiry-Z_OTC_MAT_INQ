@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://s4dbasdev130:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s4dbasdev130:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s4dbasdev130:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s4dbasdev130:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://s4dbasdev130:443/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZOTC_C_MAT_INQ_CDS" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ZOTC_C_MAT_INQType" sap:label="To get material inquiry view" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ISBN"/>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="SalesOrganization"/>
+                    <PropertyRef Name="DistributionChannel"/>
+                </Key>
+                <Property Name="ProductHierarchy_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PurchaseStatus_fc" Type="Edm.Byte" sap:label="Dyn. Field Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ISBN" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material Number" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:required-in-filter="true" sap:label="Plant" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="SalesOrganization" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:required-in-filter="true" sap:label="Sales Organization" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="DistributionChannel" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:required-in-filter="true" sap:label="Distribution Channel" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Author" Type="Edm.String" MaxLength="4" sap:label="Composer/Author"/>
+                <Property Name="Title" Type="Edm.String" MaxLength="80" sap:label="Original Title"/>
+                <Property Name="SeriesCode" Type="Edm.String" MaxLength="18" sap:label="Media product series"/>
+                <Property Name="Market" Type="Edm.String" MaxLength="5" sap:label="Market"/>
+                <Property Name="ShortTitle" Type="Edm.String" MaxLength="80" sap:label="Subtitle 2"/>
+                <Property Name="ProductHierarchy" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:field-control="ProductHierarchy_fc" sap:label="Product hierarchy"/>
+                <Property Name="Subject" Type="Edm.String" MaxLength="6" sap:label="Subject"/>
+                <Property Name="IP" Type="Edm.String" MaxLength="40" sap:label="IP number"/>
+                <Property Name="MediaType" Type="Edm.String" MaxLength="2" sap:label="Media Type"/>
+                <Property Name="SalesStatus" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="X-distr.chain status" sap:quickinfo="Cross-distribution-chain material status"/>
+                <Property Name="EAN_UPC" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:label="GTIN" sap:quickinfo="The global trade item number (EAN/UPC/GTIN)"/>
+                <Property Name="PurchaseStatus" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:field-control="PurchaseStatus_fc" sap:label="Plant-Sp.Matl Status" sap:quickinfo="Plant-Specific Material Status"/>
+                <Property Name="PublicationDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Publication Date"/>
+                <Property Name="ZZ1_Level_PRD" Type="Edm.String" MaxLength="5" sap:label="Level"/>
+                <Property Name="Price" Type="Edm.Decimal" Precision="12" Scale="3" sap:label="Condition Amount" sap:quickinfo="Condition amount or percentage where no scale exists"/>
+                <Property Name="Currency" Type="Edm.String" MaxLength="5" sap:label="Condition currency" sap:quickinfo="Condition unit (currency or percentage)" sap:semantics="currency-code"/>
+            </EntityType>
+            <EntityContainer Name="ZOTC_C_MAT_INQ_CDS_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZOTC_C_MAT_INQ" EntityType="ZOTC_C_MAT_INQ_CDS.ZOTC_C_MAT_INQType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:requires-filter="true" sap:content-version="1"/>
+            </EntityContainer>
+            <Annotations Target="ZOTC_C_MAT_INQ_CDS.ZOTC_C_MAT_INQ_CDS_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="None"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZOTC_C_MAT_INQ_CDS.ZOTC_C_MAT_INQ_CDS_Entities/ZOTC_C_MAT_INQ" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="RequiresFilter" Bool="true"/>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>ProductHierarchy_fc</PropertyPath>
+                                <PropertyPath>PurchaseStatus_fc</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="RequiredProperties">
+                            <Collection>
+                                <PropertyPath>Plant</PropertyPath>
+                                <PropertyPath>SalesOrganization</PropertyPath>
+                                <PropertyPath>DistributionChannel</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>ProductHierarchy_fc</PropertyPath>
+                                <PropertyPath>PurchaseStatus_fc</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://s4dbasdev130:443/sap/opu/odata/sap/ZOTC_C_MAT_INQ_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://s4dbasdev130:443/sap/opu/odata/sap/ZOTC_C_MAT_INQ_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
