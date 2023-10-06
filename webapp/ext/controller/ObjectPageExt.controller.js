@@ -71,7 +71,7 @@ sap.ui.controller("oup.otc.zotcmatinq.ext.controller.ObjectPageExt", {
         },
         PIR: {
           Material: oData.ISBN,
-          Plant: oData.Plant,
+          // Plant: oData.Plant,
         },
         SETS: {
           Material: oData.ISBN,

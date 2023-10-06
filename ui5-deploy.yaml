@@ -25,4 +25,4 @@ builder:
           name: Z_OTC_MAT_INQ
           description: Material Inquiry deployment from BAS
           package: ZOTC
-          transport: S4DK901505
+          transport: S4DK919877
